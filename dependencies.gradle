@@ -34,9 +34,6 @@
  * For more details, see https://docs.gradle.org/8.0.1/userguide/java_library_plugin.html#sec:java_library_configurations_graph
  */
 dependencies {
-    compileOnly("com.github.GTNewHorizons:Climate-Control:0.10.0-GTNH:dev")
-    runtimeOnlyNonPublishable("com.github.GTNewHorizons:Climate-Control:0.10.0-GTNH:dev")
-
-    compileOnly("com.github.GTNewHorizons:RTG:1.2.0-GTNH:dev")
-    runtimeOnlyNonPublishable("com.github.GTNewHorizons:RTG:1.2.0-GTNH:dev")
+    devOnlyNonPublishable("com.github.GTNewHorizons:Climate-Control:0.10.0-GTNH:dev")
+    devOnlyNonPublishable("com.github.GTNewHorizons:RTG:1.2.0-GTNH:dev")
 }
