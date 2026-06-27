@@ -21,7 +21,7 @@ public class Map {
 
     private Fragment startNode = new Fragment(new ImageLayer[0]);
 
-    private double scale = 0.25D;
+    private double scale = 0.25;
 
     private Point2D.Double start;
 

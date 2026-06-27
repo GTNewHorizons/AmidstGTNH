@@ -78,9 +78,9 @@ public class StrongholdLayer extends IconLayer {
                 }
             }
         }
-        double angle = random.nextDouble() * Math.PI * 2.0D;
+        double angle = random.nextDouble() * Math.PI * 2.0;
         for (int i = 0; i < 3; i++) {
-            double distance = (1.25D + random.nextDouble()) * 32.0D;
+            double distance = (1.25D + random.nextDouble()) * 32.0;
             int x = (int) Math.round(Math.cos(angle) * distance);
             int y = (int) Math.round(Math.sin(angle) * distance);
             Point strongholdLocation = MinecraftUtil
@@ -90,7 +90,7 @@ public class StrongholdLayer extends IconLayer {
                 y = strongholdLocation.y >> 4;
             }
             this.strongholds[i] = new MapObjectStronghold((x << 4) + 8, (y << 4) + 8);
-            angle += 2.0943951023931953D;
+            angle += Math.PI * 2 / 3;
         }
     }
 

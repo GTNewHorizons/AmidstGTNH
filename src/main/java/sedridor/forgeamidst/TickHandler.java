@@ -1,5 +1,6 @@
 package sedridor.forgeamidst;
 
+import org.lwjgl.input.Keyboard;
 import net.minecraft.client.settings.KeyBinding;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -42,7 +43,7 @@ public class TickHandler {
     }
 
     protected static void registerBind() {
-        mapButton = new KeyBinding("ForgeAMIDST", 88, "key.categories.misc");
+        mapButton = new KeyBinding("ForgeAMIDST", Keyboard.KEY_F6, "key.categories.misc");
         ClientRegistry.registerKeyBinding(mapButton);
         nextBindTriggerTime = System.currentTimeMillis();
     }

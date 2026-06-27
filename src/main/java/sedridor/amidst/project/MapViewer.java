@@ -114,9 +114,9 @@ public class MapViewer extends JComponent implements MouseListener, MouseWheelLi
 
     private static int zoomTicksRemaining = 0;
 
-    private static double targetZoom = 0.25D;
+    private static double targetZoom = 0.25;
 
-    private static double curZoom = 0.25D;
+    private static double curZoom = 0.25;
 
     private Point zoomMouse = new Point();
 
@@ -201,7 +201,7 @@ public class MapViewer extends JComponent implements MouseListener, MouseWheelLi
         g2d.fillRect(0, 0, getWidth(), getHeight());
         if (zoomTicksRemaining-- > 0) {
             double lastZoom = curZoom;
-            curZoom = (MapViewer.targetZoom + curZoom) * 0.5D;
+            curZoom = (MapViewer.targetZoom + curZoom) * 0.5;
             Point2D.Double targetZoom = this.worldMap.getScaled(lastZoom, curZoom, this.zoomMouse);
             this.worldMap.moveBy(targetZoom);
             this.worldMap.setZoom(curZoom);
@@ -211,17 +211,17 @@ public class MapViewer extends JComponent implements MouseListener, MouseWheelLi
             if (curMouse != null) {
                 double difX = (double) (curMouse.x - this.lastMouse.x);
                 double difY = (double) (curMouse.y - this.lastMouse.y);
-                this.panSpeed.setLocation(difX * 0.2D, difY * 0.2D);
+                this.panSpeed.setLocation(difX * 0.2, difY * 0.2);
             }
             this.lastMouse.translate((int) this.panSpeed.x, (int) this.panSpeed.y);
         }
         this.worldMap.moveBy((double) (int) this.panSpeed.x, (double) (int) this.panSpeed.y);
         if (Options.instance.mapFlicking.get()) {
-            this.panSpeed.x *= 0.949999988079071D;
-            this.panSpeed.y *= 0.949999988079071D;
+            this.panSpeed.x *= 0.95;
+            this.panSpeed.y *= 0.95;
         } else {
-            this.panSpeed.x *= 0.0D;
-            this.panSpeed.y *= 0.0D;
+            this.panSpeed.x *= 0.0;
+            this.panSpeed.y *= 0.0;
         }
         this.worldMap.width = getWidth();
         this.worldMap.height = getHeight();
@@ -252,12 +252,12 @@ public class MapViewer extends JComponent implements MouseListener, MouseWheelLi
         this.zoomMouse = position;
         if (notches > 0) {
             if (zoomLevel < (Options.instance.maxZoom.get() ? 26 : 100)) {
-                targetZoom /= 1.1D;
+                targetZoom /= 1.1;
                 zoomLevel++;
                 zoomTicksRemaining = 100;
             }
         } else if (zoomLevel > -22) {
-            targetZoom *= 1.1D;
+            targetZoom *= 1.1;
             zoomLevel--;
             zoomTicksRemaining = 100;
         }
@@ -288,9 +288,9 @@ public class MapViewer extends JComponent implements MouseListener, MouseWheelLi
                     && mouse.y < widget.getY() + widget.getHeight())
                     if (widget.onClick(mouse.x - widget.getX(), mouse.y - widget.getY())) return;
             }
-            MapObject object = this.worldMap.getObjectAt(mouse, 20.0D);
-            if (this.selectedObject != null) this.selectedObject.localScale = 1.0D;
-            if (object != null) object.localScale = 1.5D;
+            MapObject object = this.worldMap.getObjectAt(mouse, 20.0);
+            if (this.selectedObject != null) this.selectedObject.localScale = 1.0;
+            if (object != null) object.localScale = 1.5;
             this.selectedObject = object;
         }
     }
@@ -359,9 +359,9 @@ public class MapViewer extends JComponent implements MouseListener, MouseWheelLi
     public void keyPressed(KeyEvent e) {
         Point mouse = getMousePosition();
         if (mouse == null) mouse = new Point(getWidth() >> 1, getHeight() >> 1);
-        if (e.getKeyCode() == 61) {
+        if (e.getKeyCode() == KeyEvent.VK_EQUALS) {
             adjustZoom(mouse, -1);
-        } else if (e.getKeyCode() == 45) {
+        } else if (e.getKeyCode() == KeyEvent.VK_MINUS) {
             adjustZoom(mouse, 1);
         }
     }

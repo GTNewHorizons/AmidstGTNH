@@ -14,10 +14,10 @@ public class MapObject extends Point {
 
     public int ry;
 
-    public double localScale = 1.0D;
+    public double localScale = 1.0;
 
     @Deprecated
-    public double tempDist = 0.0D;
+    public double tempDist = 0.0;
 
     public IconLayer parentLayer;
 

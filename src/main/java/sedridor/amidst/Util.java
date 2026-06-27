@@ -18,8 +18,6 @@ import sedridor.amidst.minecraft.MinecraftInterface;
 
 public class Util {
 
-    public static final String REMOTE_VERSION_LIST_URL = "https://s3.amazonaws.com/Minecraft.Download/versions/versions.json";
-
     private static String osString;
 
     public static MinecraftInterface mcInterface;
@@ -168,11 +166,17 @@ public class Util {
     public static File getTempDir(String name) {
         File baseDir = new File(System.getProperty("java.io.tmpdir"));
         String baseName = name + "-";
-        for (int counter = 0; counter < 1000; counter++) {
+        for (int counter = 0; counter < TEMP_DIR_ATTEMPTS; counter++) {
             File tempDir = new File(baseDir, baseName + counter);
             if (tempDir.isDirectory() || tempDir.mkdir()) return tempDir;
         }
         throw new IllegalStateException(
-            "Failed to create directory within 1000 attempts (tried " + baseName + "0 to " + baseName + 'ϧ' + ')');
+            "Failed to create directory within" + TEMP_DIR_ATTEMPTS
+                + "attempts (tried "
+                + baseName
+                + "0 to "
+                + baseName
+                + 'ϧ'
+                + ')');
     }
 }
