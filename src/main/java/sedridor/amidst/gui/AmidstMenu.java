@@ -105,7 +105,7 @@ public class AmidstMenu extends JMenuBar {
 
                 {
                     setEnabled(false);
-                    setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_U, InputEvent.CTRL_DOWN_MASK));
+                    setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F, InputEvent.CTRL_DOWN_MASK));
                     addActionListener(new ActionListener() {
 
                         public void actionPerformed(ActionEvent e) {
@@ -417,7 +417,7 @@ public class AmidstMenu extends JMenuBar {
                 add(new JMenuItem("Stronghold") {
 
                     {
-                        setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F, InputEvent.CTRL_DOWN_MASK));
+                        setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_I, InputEvent.CTRL_DOWN_MASK));
                         addActionListener(new ActionListener() {
 
                             public void actionPerformed(ActionEvent e) {

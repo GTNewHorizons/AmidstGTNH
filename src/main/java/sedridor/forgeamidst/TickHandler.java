@@ -1,7 +1,8 @@
 package sedridor.forgeamidst;
 
-import org.lwjgl.input.Keyboard;
 import net.minecraft.client.settings.KeyBinding;
+
+import org.lwjgl.input.Keyboard;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
